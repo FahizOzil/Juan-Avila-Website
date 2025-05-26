@@ -469,7 +469,8 @@
                                 <img src="{{ asset('images/author.jpg') }}" alt="Juan Avila"
                                     class="w-full h-full object-cover rounded-3xl">
                                 {{-- <div class="absolute inset-0 bg-pattern opacity-20"></div> --}}
-                                {{-- <img src="https://via.placeholder.com/300x400" alt="Author Image" class="w-full h-full object-cover rounded-3xl"> --}}
+                                {{-- <img src="https://via.placeholder.com/300x400" alt="Author Image"
+                                    class="w-full h-full object-cover rounded-3xl"> --}}
                                 {{-- <div class="absolute inset-0 bg-pattern opacity-20"></div>
                                 <svg class="w-32 h-32 text-gray-400 relative z-10" fill="currentColor"
                                     viewBox="0 0 20 20">
@@ -514,221 +515,264 @@
         </div>
     </section>
 
-   <!-- Book Section -->
-<section id="book" class="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 relative overflow-hidden">
-    <!-- Subtle Background Elements -->
-    <div class="absolute inset-0 pointer-events-none">
-        <div class="absolute top-20 right-1/4 w-64 h-64 bg-gradient-to-r from-blue-400/8 to-red-400/8 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-32 left-1/4 w-72 h-72 bg-gradient-to-r from-red-400/6 to-blue-500/6 rounded-full blur-3xl"></div>
-    </div>
-
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <!-- Section Header -->
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                My <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-red-500">Latest Book</span>
-            </h2>
-            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                A humorous journey through the chaos of parenting, filled with insights on finding patience and joy in life's most challenging moments.
-            </p>
+    <!-- Book Section -->
+    <section id="book" class="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 relative overflow-hidden">
+        <!-- Subtle Background Elements -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div
+                class="absolute top-20 right-1/4 w-64 h-64 bg-gradient-to-r from-blue-400/8 to-red-400/8 rounded-full blur-3xl">
+            </div>
+            <div
+                class="absolute bottom-32 left-1/4 w-72 h-72 bg-gradient-to-r from-red-400/6 to-blue-500/6 rounded-full blur-3xl">
+            </div>
         </div>
 
-        <!-- Book Content Grid -->
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <!-- Book Cover -->
-            <div class="flex justify-center lg:justify-end">
-                <div class="relative group">
-                    <!-- Shadow backdrop -->
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-red-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    My <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-red-500">Latest
+                        Book</span>
+                </h2>
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    A humorous journey through the chaos of parenting, filled with insights on finding patience and joy
+                    in life's most challenging moments.
+                </p>
+            </div>
 
-                    <!-- Book cover container -->
-                    <div class="relative w-72 h-96 md:w-80 md:h-[440px] bg-white rounded-2xl shadow-2xl overflow-hidden transform group-hover:scale-105 transition-all duration-300">
-                        <!-- Placeholder for book cover image -->
-                        <div class="w-full h-full bg-gradient-to-br from-blue-500 via-purple-600 to-red-500 flex items-center justify-center relative">
-                            <!-- Replace this div with actual book cover image -->
-                            <img src="images/book-cover.jpg" alt="Finding Laughter in the Chaos - Book Cover"
-                                 class="w-full h-full object-cover"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <!-- Book Content Grid -->
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Book Cover -->
+                <div class="flex justify-center lg:justify-end">
+                    <div class="relative group">
+                        <!-- Shadow backdrop -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-blue-500 to-red-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300">
+                        </div>
 
-                            <!-- Fallback content if image doesn't load -->
-                            <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-8 text-center" style="display: none;">
-                                <h3 class="text-2xl md:text-3xl font-bold mb-2 leading-tight">Finding Laughter in the Chaos</h3>
-                                <p class="text-sm md:text-base opacity-90 mb-4">A Parent's Guide to Surviving with Humor</p>
-                                <p class="text-lg font-semibold">Juan Avila</p>
+                        <!-- Book cover container -->
+                        <div
+                            class="relative w-72 h-96 md:w-80 md:h-[440px] bg-white rounded-2xl shadow-2xl overflow-hidden transform group-hover:scale-105 transition-all duration-300">
+                            <!-- Placeholder for book cover image -->
+                            <div
+                                class="w-full h-full bg-gradient-to-br from-blue-500 via-purple-600 to-red-500 flex items-center justify-center relative">
+                                <!-- Replace this div with actual book cover image -->
+                                <img src="images/book-cover.jpg" alt="Finding Laughter in the Chaos - Book Cover"
+                                    class="w-full h-full object-cover"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                                <!-- Fallback content if image doesn't load -->
+                                <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-8 text-center"
+                                    style="display: none;">
+                                    <h3 class="text-2xl md:text-3xl font-bold mb-2 leading-tight">Finding Laughter in
+                                        the Chaos</h3>
+                                    <p class="text-sm md:text-base opacity-90 mb-4">A Parent's Guide to Surviving with
+                                        Humor</p>
+                                    <p class="text-lg font-semibold">Juan Avila</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Book Details -->
-            <div class="space-y-8">
-                <div>
-                    <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 leading-tight">
-                        Finding Laughter in the Chaos
-                    </h3>
-                    <p class="text-lg md:text-xl text-blue-600 font-medium mb-6">
-                        A Parent's Guide to Surviving with Humor
-                    </p>
+                <!-- Book Details -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 leading-tight">
+                            Finding Laughter in the Chaos
+                        </h3>
+                        <p class="text-lg md:text-xl text-blue-600 font-medium mb-6">
+                            A Parent's Guide to Surviving with Humor
+                        </p>
 
-                    <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-8">
-                        This book explores the intersection of humor, parenting, and personal growth through relatable stories and practical insights.
-                        From navigating toddler tantrums to finding patience in chaos, discover how laughter can be your greatest parenting tool and
-                        a pathway to better anger management and emotional well-being.
-                    </p>
-                </div>
+                        <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-8">
+                            This book explores the intersection of humor, parenting, and personal growth through
+                            relatable stories and practical insights.
+                            From navigating toddler tantrums to finding patience in chaos, discover how laughter can be
+                            your greatest parenting tool and
+                            a pathway to better anger management and emotional well-being.
+                        </p>
+                    </div>
 
-                <!-- Purchase Links -->
-                <div class="space-y-6">
-                    <h4 class="text-xl font-bold text-gray-900">Get Your Copy:</h4>
+                    <!-- Purchase Links -->
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-gray-900">Get Your Copy:</h4>
 
-                    <div class="grid gap-4">
-                        <!-- Amazon Link -->
-                        <a href="#" class="group flex items-center justify-between p-4 bg-white border-2 border-gray-100 rounded-xl hover:border-blue-300 hover:shadow-lg transition-all duration-300">
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-lg flex items-center justify-center mr-4">
-                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2L13.5 8.5L20 7L14.5 12L20 17.5L13.5 16L12 22L10.5 16L4 17.5L9.5 12L4 7L10.5 8.5L12 2Z"/>
-                                    </svg>
+                        <div class="grid gap-4">
+                            <!-- Amazon Link -->
+                            <a href="#"
+                                class="group flex items-center justify-between p-4 bg-white border-2 border-gray-100 rounded-xl hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+                                <div class="flex items-center">
+                                    <div
+                                        class="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-lg flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 2L13.5 8.5L20 7L14.5 12L20 17.5L13.5 16L12 22L10.5 16L4 17.5L9.5 12L4 7L10.5 8.5L12 2Z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-900">Amazon</p>
+                                        <p class="text-sm text-gray-600">Paperback & Kindle</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="font-semibold text-gray-900">Amazon</p>
-                                    <p class="text-sm text-gray-600">Paperback & Kindle</p>
-                                </div>
-                            </div>
-                            <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                            </svg>
-                        </a>
+                                <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
 
-                        <!-- Barnes & Noble Link -->
-                        <a href="#" class="group flex items-center justify-between p-4 bg-white border-2 border-gray-100 rounded-xl hover:border-red-300 hover:shadow-lg transition-all duration-300">
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mr-4">
-                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
-                                    </svg>
+                            <!-- Barnes & Noble Link -->
+                            <a href="#"
+                                class="group flex items-center justify-between p-4 bg-white border-2 border-gray-100 rounded-xl hover:border-red-300 hover:shadow-lg transition-all duration-300">
+                                <div class="flex items-center">
+                                    <div
+                                        class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-900">Barnes & Noble</p>
+                                        <p class="text-sm text-gray-600">Online & In-store</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="font-semibold text-gray-900">Barnes & Noble</p>
-                                    <p class="text-sm text-gray-600">Online & In-store</p>
-                                </div>
-                            </div>
-                            <svg class="w-5 h-5 text-gray-400 group-hover:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                            </svg>
-                        </a>
+                                <svg class="w-5 h-5 text-gray-400 group-hover:text-red-500 transition-colors"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
 
-                        <!-- Apple Books Link -->
-                        <a href="#" class="group flex items-center justify-between p-4 bg-white border-2 border-gray-100 rounded-xl hover:border-blue-300 hover:shadow-lg transition-all duration-300">
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-4">
-                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
-                                    </svg>
+                            <!-- Apple Books Link -->
+                            <a href="#"
+                                class="group flex items-center justify-between p-4 bg-white border-2 border-gray-100 rounded-xl hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+                                <div class="flex items-center">
+                                    <div
+                                        class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-900">Apple Books</p>
+                                        <p class="text-sm text-gray-600">Digital Edition</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="font-semibold text-gray-900">Apple Books</p>
-                                    <p class="text-sm text-gray-600">Digital Edition</p>
-                                </div>
-                            </div>
-                            <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                            </svg>
-                        </a>
+                                <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div class="p-6 bg-gradient-to-r from-blue-50 to-red-50 rounded-xl border border-gray-100">
+                        <p class="text-gray-700 text-center">
+                            <span class="font-semibold">Join thousands of parents</span> who have discovered the power
+                            of humor in parenting.
+                            Get your copy today and start finding laughter in the chaos!
+                        </p>
                     </div>
                 </div>
-
-                <!-- Call to Action -->
-                <div class="p-6 bg-gradient-to-r from-blue-50 to-red-50 rounded-xl border border-gray-100">
-                    <p class="text-gray-700 text-center">
-                        <span class="font-semibold">Join thousands of parents</span> who have discovered the power of humor in parenting.
-                        Get your copy today and start finding laughter in the chaos!
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- Writing/Blog Section -->
-    <section id="writing" class="py-24 relative overflow-hidden">
-        <!-- Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-red-50/50 via-gray-50 to-blue-50/50">
-            <div class="absolute inset-0 geometric-bg opacity-20"></div>
-            <div
-                class="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-r from-brand-blue/10 to-brand-red/10 rounded-full blur-3xl blob">
-            </div>
-            <div
-                class="absolute bottom-20 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-400/10 to-cyan-400/10 rounded-full blur-3xl blob animation-delay-3000">
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-display font-bold mb-4 gradient-text">Latest Thoughts</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Fresh perspectives on parenting, humor, and finding
-                    joy in everyday moments.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Blog Post 1 -->
-                <article
-                    class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg card-hover border border-white/20">
-                    <div
-                        class="w-12 h-12 bg-gradient-to-r from-brand-blue/20 to-brand-blue/10 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">The Art of Laughing at Tantrums</h3>
-                    <p class="text-gray-600 mb-4">How I learned to find humor in my toddler's epic meltdowns and why it
-                        saved my sanity.</p>
-                    <a href="#" class="text-brand-blue font-semibold hover:text-blue-700 transition-colors">Read More
-                        →</a>
-                </article>
-
-                <!-- Blog Post 2 -->
-                <article
-                    class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg card-hover border border-white/20">
-                    <div
-                        class="w-12 h-12 bg-gradient-to-r from-brand-red/20 to-brand-red/10 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Why Imperfect Parents Are the Best</h3>
-                    <p class="text-gray-600 mb-4">Embracing mistakes, finding grace, and teaching our kids that
-                        perfection is overrated.</p>
-                    <a href="#" class="text-brand-blue font-semibold hover:text-blue-700 transition-colors">Read More
-                        →</a>
-                </article>
-
-                <!-- Blog Post 3 -->
-                <article
-                    class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg card-hover border border-white/20">
-                    <div
-                        class="w-12 h-12 bg-gradient-to-r from-green-500/20 to-green-500/10 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Finding Your Voice as a Writer</h3>
-                    <p class="text-gray-600 mb-4">My journey from frustrated parent to published author, and how you can
-                        tell your story too.</p>
-                    <a href="#" class="text-brand-blue font-semibold hover:text-blue-700 transition-colors">Read More
-                        →</a>
-                </article>
             </div>
         </div>
     </section>
 
+
+    <!-- Testimonials/Reviews Section -->
+    <section id="testimonials" class="section-padding bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-serif font-bold mb-4 gradient-text">What Readers Say</h2>
+                <p class="text-xl text-gray-600">Real reviews from parents who found their laughter again</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="minimal-card p-8 hover-lift">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">"Finally, a parenting book that made me laugh instead of stress! Juan's humor is exactly what overwhelmed parents need."</p>
+                    <p class="text-sm text-gray-600 font-semibold">— Sarah M., Mother of 3</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="minimal-card p-8 hover-lift">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">"Juan's book is a breath of fresh air! His humor made me realize I'm not alone in this parenting journey."</p>
+                    <p class="text-sm text-gray-600 font-semibold">— Mark T., Father of 2</p>
+                </div>
+                <!-- Review 3 -->
+                <div class="minimal-card p-8 hover-lift">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24 .588,1 .81,2 .034,7 .034,7s-.197,4 .118,4 .197,4 .197,4
+                                -2.8,2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81 .588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24 .588,1 .81,2 .034,7 .034,7s-.197,4 .118,4 .197,4 .197,4
+                                -2.8,2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81 .588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24 .588,1 .81,2 .034,7 .034,7s-.197,4 .118,4 .197,4 .197,4
+                                -2.8,2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81 .588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24 .588,1 .81,2 .034,7 .034,7s-.197,4 .118,4 .197,4 .197,4
+                                -2.8,2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81 .588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">"A hilarious and insightful read! Juan's book is a must-have for any parent looking to find joy amidst the chaos."</p>
+                    <p class="text-sm text-gray-600 font-semibold">— Emily R., Mother of 1</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Contact Section -->
     <section id="contact" class="py-24 contact-bg relative overflow-hidden">
         <!-- Floating Background Elements -->
