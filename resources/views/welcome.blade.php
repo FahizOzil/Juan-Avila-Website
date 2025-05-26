@@ -514,89 +514,142 @@
         </div>
     </section>
 
-    <!-- Book Section -->
-    <section id="book" class="py-24 relative overflow-hidden bg-white">
-        <!-- Background Elements -->
-        <div class="absolute inset-0">
-            <div
-                class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-blue-50/30 to-transparent">
-            </div>
-            <div
-                class="absolute top-32 right-10 w-72 h-72 bg-gradient-to-r from-brand-red/5 to-brand-blue/5 rounded-full blur-3xl">
-            </div>
-            <div
-                class="absolute bottom-32 left-10 w-80 h-80 bg-gradient-to-r from-purple-400/5 to-cyan-400/5 rounded-full blur-3xl">
-            </div>
+   <!-- Book Section -->
+<section id="book" class="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 relative overflow-hidden">
+    <!-- Subtle Background Elements -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-20 right-1/4 w-64 h-64 bg-gradient-to-r from-blue-400/8 to-red-400/8 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-32 left-1/4 w-72 h-72 bg-gradient-to-r from-red-400/6 to-blue-500/6 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                My <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-red-500">Latest Book</span>
+            </h2>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                A humorous journey through the chaos of parenting, filled with insights on finding patience and joy in life's most challenging moments.
+            </p>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-display font-bold mb-4 gradient-text">My Latest Book</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Stories that will make you laugh, think, and feel
-                    less alone in this beautiful mess we call life.</p>
-            </div>
+        <!-- Book Content Grid -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <!-- Book Cover -->
+            <div class="flex justify-center lg:justify-end">
+                <div class="relative group">
+                    <!-- Shadow backdrop -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-red-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
 
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <!-- Book Cover -->
-                <div class="flex justify-center">
-                    <div class="relative card-hover">
-                        <div
-                            class="w-80 h-96 bg-gradient-to-br from-brand-blue via-purple-500 to-brand-red rounded-2xl shadow-2xl flex items-center justify-center relative">
-                            <!-- Book cover pattern -->
-                           <img src="{{ asset('images/book-cover.jpg') }}" alt="Book Cover"
-                                class="w-full h-90 object-cover rounded-2xl">
-                            {{-- <div class="absolute inset-0 bg-pattern opacity-20"></div> --}}
-                            {{-- <img src="https://via.placeholder.com/200x300" alt="Book Cover" class="w-full h-full object-cover rounded-2xl"> --}}
-                            {{-- <div class="absolute inset-0 bg-pattern opacity-10"></div> --}}
-                            {{-- <div class="text-white text-center p-8 relative z-10">
-                                <h3 class="text-2xl font-display font-bold mb-4">Book Title</h3>
-                                <p class="text-sm opacity-90">Juan Avila</p>
-                            </div> --}}
+                    <!-- Book cover container -->
+                    <div class="relative w-72 h-96 md:w-80 md:h-[440px] bg-white rounded-2xl shadow-2xl overflow-hidden transform group-hover:scale-105 transition-all duration-300">
+                        <!-- Placeholder for book cover image -->
+                        <div class="w-full h-full bg-gradient-to-br from-blue-500 via-purple-600 to-red-500 flex items-center justify-center relative">
+                            <!-- Replace this div with actual book cover image -->
+                            <img src="images/book-cover.jpg" alt="Finding Laughter in the Chaos - Book Cover"
+                                 class="w-full h-full object-cover"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                            <!-- Fallback content if image doesn't load -->
+                            <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-8 text-center" style="display: none;">
+                                <h3 class="text-2xl md:text-3xl font-bold mb-2 leading-tight">Finding Laughter in the Chaos</h3>
+                                <p class="text-sm md:text-base opacity-90 mb-4">A Parent's Guide to Surviving with Humor</p>
+                                <p class="text-lg font-semibold">Juan Avila</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Book Details -->
+            <!-- Book Details -->
+            <div class="space-y-8">
                 <div>
-                    <h3 class="text-3xl lg:text-4xl font-display font-bold mb-6">
+                    <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 leading-tight">
                         Finding Laughter in the Chaos
-                        <span class="block text-lg font-normal text-brand-blue mt-2">A Parent's Guide to Surviving with
-                            Humor</span>
                     </h3>
-
-                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                        This book explores the intersection of humor, parenting, and personal growth through relatable
-                        stories and practical insights. From navigating toddler tantrums to finding patience in chaos,
-                        discover how laughter can be your greatest parenting tool.
+                    <p class="text-lg md:text-xl text-blue-600 font-medium mb-6">
+                        A Parent's Guide to Surviving with Humor
                     </p>
 
-                    <!-- Buy Links -->
-                    <div class="space-y-6">
-                        <h4 class="text-xl font-semibold text-gray-900">Available Now:</h4>
-                        <div class="grid sm:grid-cols-2 gap-4">
-                            <a href="#"
-                                class="flex items-center justify-center px-6 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-xl hover:bg-yellow-500 hover:shadow-lg transition-all duration-300 card-hover">
-                                <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M12 2L13.5 8.5L20 7L14.5 12L20 17.5L13.5 16L12 22L10.5 16L4 17.5L9.5 12L4 7L10.5 8.5L12 2Z" />
-                                </svg>
-                                Amazon
-                            </a>
-                            <a href="#"
-                                class="flex items-center justify-center px-6 py-3 bg-brand-blue text-white font-semibold rounded-xl hover:bg-blue-600 hover:shadow-lg transition-all duration-300 card-hover">
-                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z">
-                                    </path>
-                                </svg>
-                                Kindle
-                            </a>
-                        </div>
+                    <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-8">
+                        This book explores the intersection of humor, parenting, and personal growth through relatable stories and practical insights.
+                        From navigating toddler tantrums to finding patience in chaos, discover how laughter can be your greatest parenting tool and
+                        a pathway to better anger management and emotional well-being.
+                    </p>
+                </div>
+
+                <!-- Purchase Links -->
+                <div class="space-y-6">
+                    <h4 class="text-xl font-bold text-gray-900">Get Your Copy:</h4>
+
+                    <div class="grid gap-4">
+                        <!-- Amazon Link -->
+                        <a href="#" class="group flex items-center justify-between p-4 bg-white border-2 border-gray-100 rounded-xl hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2L13.5 8.5L20 7L14.5 12L20 17.5L13.5 16L12 22L10.5 16L4 17.5L9.5 12L4 7L10.5 8.5L12 2Z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Amazon</p>
+                                    <p class="text-sm text-gray-600">Paperback & Kindle</p>
+                                </div>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+
+                        <!-- Barnes & Noble Link -->
+                        <a href="#" class="group flex items-center justify-between p-4 bg-white border-2 border-gray-100 rounded-xl hover:border-red-300 hover:shadow-lg transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Barnes & Noble</p>
+                                    <p class="text-sm text-gray-600">Online & In-store</p>
+                                </div>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-400 group-hover:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+
+                        <!-- Apple Books Link -->
+                        <a href="#" class="group flex items-center justify-between p-4 bg-white border-2 border-gray-100 rounded-xl hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Apple Books</p>
+                                    <p class="text-sm text-gray-600">Digital Edition</p>
+                                </div>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
                     </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="p-6 bg-gradient-to-r from-blue-50 to-red-50 rounded-xl border border-gray-100">
+                    <p class="text-gray-700 text-center">
+                        <span class="font-semibold">Join thousands of parents</span> who have discovered the power of humor in parenting.
+                        Get your copy today and start finding laughter in the chaos!
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Writing/Blog Section -->
     <section id="writing" class="py-24 relative overflow-hidden">
