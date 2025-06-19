@@ -1,0 +1,41 @@
+name: Deploy to StackCP
+
+on:
+  push:
+    branches: [ main ]  # Change to your default branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js (if needed)
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    # Uncomment if you need to build your project
+    # - name: Install dependencies
+    #   run: npm ci
+    #
+    # - name: Build project
+    #   run: npm run build
+
+    - name: Deploy via FTP
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./  # Change to ./dist/ or ./build/ if you have a build step
+        server-dir: /public_html/  # Change to your StackCP public directory
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/.env
+          **/README.md
