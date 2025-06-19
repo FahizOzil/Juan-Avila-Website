@@ -1,4 +1,4 @@
-name: Deploy to StackCP
+name: Deploy Laravel to StackCP
 
 on:
   push:
@@ -12,18 +12,26 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Setup Node.js (if needed)
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'  # Change to your PHP version
+        extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, mysql
+
+    - name: Setup Node.js (for frontend assets)
       uses: actions/setup-node@v3
       with:
         node-version: '18'
         cache: 'npm'
 
-    # Uncomment if you need to build your project
-    # - name: Install dependencies
-    #   run: npm ci
-    #
-    # - name: Build project
-    #   run: npm run build
+    - name: Install Composer dependencies
+      run: composer install --optimize-autoloader --no-dev
+
+    - name: Install NPM dependencies
+      run: npm ci
+
+    - name: Build frontend assets
+      run: npm run build
 
     - name: Deploy via FTP
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
@@ -31,11 +39,19 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./  # Change to ./dist/ or ./build/ if you have a build step
+        local-dir: ./
         server-dir: /public_html/  # Change to your StackCP public directory
         exclude: |
           **/.git*
           **/.git*/**
           **/node_modules/**
+          **/tests/**
           **/.env
+          **/.env.example
           **/README.md
+          **/package.json
+          **/package-lock.json
+          **/webpack.mix.js
+          **/composer.json
+          **/composer.lock
+          **/phpunit.xml
