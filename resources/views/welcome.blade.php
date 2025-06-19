@@ -359,7 +359,7 @@
                     <a href="#book"
                         class="text-gray-700 hover:text-brand-blue transition-colors duration-200 font-medium">Book</a>
                     <a href="#writing"
-                        class="text-gray-700 hover:text-brand-blue transition-colors duration-200 font-medium">Writing</a>
+                        {{-- class="text-gray-700 hover:text-brand-blue transition-colors duration-200 font-medium">Writing</a> --}}
                     <a href="#contact"
                         class="text-gray-700 hover:text-brand-blue transition-colors duration-200 font-medium">Contact</a>
                 </div>
@@ -795,7 +795,8 @@
             <div class="grid md:grid-cols-2 gap-12">
                 <!-- Contact Form -->
                 <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/20 card-hover">
-                    <form class="space-y-6">
+                    <form class="space-y-6" id="contactForm" method="post" action="{{ route('contact.submit') }}">
+                        @csrf
                         <div>
                             <label for="name" class="block text-sm font-semibold text-gray-700 mb-2 font-inter">Full
                                 Name</label>
@@ -824,6 +825,11 @@
                                 class="absolute inset-0 bg-gradient-to-r from-brand-red to-brand-blue opacity-0 hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </button>
+                        
+                           <div class="form-success" id="formSuccess">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Your message has been sent successfully! Anne will get back to you soon.</p>
+                </div>
                     </form>
                 </div>
 
@@ -852,7 +858,7 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-900 font-inter">Email</h4>
-                                <p class="text-gray-600">hello@juanavila.com</p>
+                                <p class="text-gray-600">contact@authorjuanavila.com</p>
                             </div>
                         </div>
 
@@ -1014,21 +1020,6 @@
         document.querySelector('form').addEventListener('submit', function (e) {
             e.preventDefault();
 
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const message = formData.get('message');
-
-            // Simple validation
-            if (!name || !email || !message) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-
-            // Show success message (replace with actual form submission logic)
-            alert('Thank you for your message! Juan will get back to you soon.');
-            this.reset();
         });
 
         // Newsletter subscription
@@ -1079,6 +1070,47 @@
                 `;
             }
         });
+        
+        
+        
+         // Form submission
+        function setupForm() {
+            const form = document.getElementById('contactForm');
+            const success = document.getElementById('formSuccess');
+
+            if (form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    try {
+                        let res = await fetch(form.action, {
+                            method: 'POST',
+                            body: new FormData(form),
+                        });
+
+                        if (!res.ok) {
+                            throw new Error('Form submission failed');
+                        }
+
+                        let result = await res.json();
+
+                        // Success handling
+                        form.reset();
+                        success.style.display = 'block';
+
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            success.style.display = 'none';
+                        }, 5000);
+
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('There was an error submitting the form. Please try again later.');
+                    }
+                });
+            }
+        }
+setupForm();
     </script>
 </body>
 
