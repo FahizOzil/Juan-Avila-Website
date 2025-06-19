@@ -15,11 +15,12 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.1'  # Change to your PHP version
+        php-version: '8.8'  # Change to your PHP version
         extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, mysql
 
-    - name: Install Composer dependencies
-      run: composer install --optimize-autoloader --no-dev
+    # Only run if you have composer.json and need dependencies
+    # - name: Install Composer dependencies
+    #   run: composer install --optimize-autoloader --no-dev
 
     - name: Deploy via FTP
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
