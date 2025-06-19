@@ -9,11 +9,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    environment: production  # Optional: use GitHub environments for better security
-
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4  # Updated to latest version
+      uses: actions/checkout@v4
 
     - name: Deploy via SSH
       uses: appleboy/ssh-action@v1.0.0
@@ -22,99 +20,44 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
-        timeout: 300s  # Increase timeout for slower operations
-        command_timeout: 60s
+        timeout: 300s
+        command_timeout: 120s
         script: |
-          set -e  # Exit on any error
-
-          echo "=== Starting deployment ==="
-          echo "Current user: $(whoami)"
-          echo "Current time: $(date)"
-
-          # Define the deployment path
-          DEPLOY_PATH="/home/authorjuanavila.com/public_html"
-
-          # Check if directory exists
-          if [ ! -d "$DEPLOY_PATH" ]; then
-            echo "Error: Directory $DEPLOY_PATH does not exist"
-            echo "Available directories in /home/authorjuanavila.com/:"
-            ls -la /home/authorjuanavila.com/ || echo "Cannot list parent directory"
-            exit 1
+          # Try to find the correct directory
+          if [ -d "$HOME/public_html" ]; then
+            cd "$HOME/public_html"
+          elif [ -d "$HOME/authorjuanavila.com/public_html" ]; then
+            cd "$HOME/authorjuanavila.com/public_html"
+          elif [ -d "$HOME/www" ]; then
+            cd "$HOME/www"
+          elif [ -d "$HOME/htdocs" ]; then
+            cd "$HOME/htdocs"
+          else
+            echo "Web directory not found. Creating $HOME/public_html"
+            mkdir -p "$HOME/public_html"
+            cd "$HOME/public_html"
           fi
 
-          # Navigate to deployment directory
-          echo "Changing to deployment directory: $DEPLOY_PATH"
-          cd "$DEPLOY_PATH"
+          echo "Current directory: $(pwd)"
 
-          # Check if it's a git repository
+          # Initialize git if needed
           if [ ! -d ".git" ]; then
-            echo "Warning: Not a git repository. You may need to clone your repo first."
-            echo "Current directory contents:"
-            ls -la
+            git init
+            git remote add origin https://github.com/${{ github.repository }}.git
+            git fetch origin main
+            git checkout -b main origin/main
           fi
 
-          # Git operations
-          echo "=== Updating code ==="
-          if git pull origin main; then
-            echo "Git pull successful"
-          else
-            echo "Git pull failed, continuing with existing files"
-          fi
+          # Update code
+          git pull origin main || echo "Using existing code"
 
-          # Check if composer.json exists
-          if [ ! -f "composer.json" ]; then
-            echo "Warning: composer.json not found in current directory"
-            echo "Current directory: $(pwd)"
-            echo "Directory contents:"
-            ls -la
-          fi
+          # Install dependencies
+          composer install --no-dev --optimize-autoloader --no-interaction || {
+            echo "Composer install failed, trying with php composer.phar"
+            php composer.phar install --no-dev --optimize-autoloader --no-interaction
+          }
 
-          # Composer install
-          echo "=== Installing dependencies ==="
-          if command -v composer >/dev/null 2>&1; then
-            composer install --no-dev --optimize-autoloader --no-interaction
-          else
-            echo "Error: Composer not found. Please install composer on your server."
-            exit 1
-          fi
-
-          # Laravel specific commands
-          echo "=== Running Laravel commands ==="
-
-          # Check if artisan exists
-          if [ ! -f "artisan" ]; then
-            echo "Warning: artisan file not found. This might not be a Laravel project root."
-            echo "Current directory: $(pwd)"
-            ls -la
-          fi
-
-          # Run Laravel commands with error checking
-          if command -v php >/dev/null 2>&1; then
-            echo "Running database migrations..."
-            php artisan migrate --force --no-interaction
-
-            echo "Caching configuration..."
-            php artisan config:cache
-
-            echo "Caching routes..."
-            php artisan route:cache
-
-            echo "Clearing and caching views..."
-            php artisan view:cache
-
-            echo "Optimizing application..."
-            php artisan optimize
-
-          else
-            echo "Error: PHP not found. Please ensure PHP is installed and in PATH."
-            exit 1
-          fi
-
-          echo "=== Deployment completed successfully ==="
-          echo "Deployment finished at: $(date)"
-
-    - name: Notify on failure
-      if: failure()
-      run: |
-        echo "Deployment failed! Check the logs above for details."
-        # You can add notification logic here (Slack, Discord, email, etc.)
+          # Laravel commands
+          php artisan migrate --force --no-interaction
+          php artisan config:cache
+          php artisan route:cache
