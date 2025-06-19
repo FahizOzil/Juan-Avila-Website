@@ -18,20 +18,8 @@ jobs:
         php-version: '8.1'  # Change to your PHP version
         extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, mysql
 
-    - name: Setup Node.js (for frontend assets)
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-        cache: 'npm'
-
     - name: Install Composer dependencies
       run: composer install --optimize-autoloader --no-dev
-
-    - name: Install NPM dependencies
-      run: npm ci
-
-    - name: Build frontend assets
-      run: npm run build
 
     - name: Deploy via FTP
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
@@ -49,9 +37,6 @@ jobs:
           **/.env
           **/.env.example
           **/README.md
-          **/package.json
-          **/package-lock.json
-          **/webpack.mix.js
           **/composer.json
           **/composer.lock
           **/phpunit.xml
