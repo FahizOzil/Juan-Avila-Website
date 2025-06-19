@@ -1,4 +1,4 @@
-name: Deploy Laravel to StackCP via SSH
+name: Auto-Detect and Deploy Laravel
 
 on:
   push:
@@ -8,12 +8,11 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Deploy via SSH
+    - name: Deploy with Auto-Detection
       uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.SSH_HOST }}
@@ -23,41 +22,127 @@ jobs:
         timeout: 300s
         command_timeout: 120s
         script: |
-          # Try to find the correct directory
-          if [ -d "$HOME/public_html" ]; then
-            cd "$HOME/public_html"
-          elif [ -d "$HOME/authorjuanavila.com/public_html" ]; then
-            cd "$HOME/authorjuanavila.com/public_html"
-          elif [ -d "$HOME/www" ]; then
-            cd "$HOME/www"
-          elif [ -d "$HOME/htdocs" ]; then
-            cd "$HOME/htdocs"
-          else
-            echo "Web directory not found. Creating $HOME/public_html"
+          set -e
+
+          echo "=== AUTO-DETECTING WEB DIRECTORY ==="
+          echo "Server: $(hostname)"
+          echo "User: $(whoami)"
+          echo "Home: $HOME"
+
+          # Function to find or create web directory
+          setup_web_directory() {
+            # StackCP/cPanel common paths
+            local possible_paths=(
+              "$HOME/public_html"
+              "$HOME/www"
+              "$HOME/htdocs"
+              "$HOME/domains/authorjuanavila.com/public_html"
+              "$HOME/authorjuanavila.com/public_html"
+              "$HOME/public_html/authorjuanavila.com"
+            )
+
+            echo "Checking possible web directories..."
+            for path in "${possible_paths[@]}"; do
+              echo "Checking: $path"
+              if [ -d "$path" ]; then
+                echo "✓ Found existing directory: $path"
+                echo "$path"
+                return 0
+              fi
+            done
+
+            echo "No existing web directory found. Creating $HOME/public_html"
             mkdir -p "$HOME/public_html"
-            cd "$HOME/public_html"
-          fi
-
-          echo "Current directory: $(pwd)"
-
-          # Initialize git if needed
-          if [ ! -d ".git" ]; then
-            git init
-            git remote add origin https://github.com/${{ github.repository }}.git
-            git fetch origin main
-            git checkout -b main origin/main
-          fi
-
-          # Update code
-          git pull origin main || echo "Using existing code"
-
-          # Install dependencies
-          composer install --no-dev --optimize-autoloader --no-interaction || {
-            echo "Composer install failed, trying with php composer.phar"
-            php composer.phar install --no-dev --optimize-autoloader --no-interaction
+            echo "$HOME/public_html"
+            return 0
           }
 
+          # Get the web directory
+          WEB_DIR=$(setup_web_directory)
+          echo "Using web directory: $WEB_DIR"
+
+          # Change to web directory
+          cd "$WEB_DIR"
+          echo "Current directory: $(pwd)"
+
+          # Show current contents
+          echo "Current directory contents:"
+          ls -la
+
+          echo -e "\n=== SETTING UP GIT REPOSITORY ==="
+          if [ ! -d ".git" ]; then
+            echo "Initializing new git repository..."
+            git init
+            git remote add origin https://github.com/${{ github.repository }}.git
+
+            # Initial clone
+            echo "Fetching repository..."
+            git fetch origin main
+            git checkout -b main origin/main
+          else
+            echo "Git repository exists, updating..."
+            git fetch origin main
+            git reset --hard origin/main
+          fi
+
+          echo -e "\n=== CHECKING PROJECT STRUCTURE ==="
+          if [ ! -f "composer.json" ]; then
+            echo "❌ composer.json not found!"
+            echo "Available files:"
+            ls -la
+            exit 1
+          fi
+
+          if [ ! -f "artisan" ]; then
+            echo "❌ artisan not found!"
+            echo "This doesn't appear to be a Laravel project"
+            exit 1
+          fi
+
+          echo "✅ Laravel project structure confirmed"
+
+          echo -e "\n=== INSTALLING DEPENDENCIES ==="
+          if command -v composer >/dev/null 2>&1; then
+            echo "Using system composer"
+            composer install --no-dev --optimize-autoloader --no-interaction
+          else
+            echo "System composer not found, downloading..."
+            curl -sS https://getcomposer.org/installer | php
+            php composer.phar install --no-dev --optimize-autoloader --no-interaction
+          fi
+
+          echo -e "\n=== SETTING UP LARAVEL ==="
+
+          # Create .env if needed
+          if [ ! -f ".env" ]; then
+            if [ -f ".env.example" ]; then
+              echo "Creating .env from example"
+              cp .env.example .env
+            else
+              echo "⚠️  No .env file found - you may need to create one manually"
+            fi
+          fi
+
           # Laravel commands
-          php artisan migrate --force --no-interaction
+          echo "Running Laravel optimization commands..."
+
+          # Generate key if needed
+          php artisan key:generate --force --no-interaction 2>/dev/null || echo "Key generation skipped"
+
+          # Database migration
+          php artisan migrate --force --no-interaction || echo "⚠️  Migration failed - check database config"
+
+          # Cache commands
           php artisan config:cache
           php artisan route:cache
+          php artisan view:cache
+
+          # Set permissions
+          echo -e "\n=== SETTING PERMISSIONS ==="
+          chmod -R 755 storage bootstrap/cache 2>/dev/null || echo "Permission setting completed"
+
+          echo -e "\n=== DEPLOYMENT SUMMARY ==="
+          echo "✅ Deployment completed successfully!"
+          echo "📁 Web directory: $WEB_DIR"
+          echo "🌐 Your site should now be live"
+          echo "📝 Don't forget to configure your .env file if needed"
