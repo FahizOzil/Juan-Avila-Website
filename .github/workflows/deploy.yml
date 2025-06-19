@@ -2,7 +2,7 @@ name: Deploy Laravel to StackCP
 
 on:
   push:
-    branches: [ main ]  # Change to your default branch name
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -12,16 +12,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.8'  # Change to your PHP version
-        extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, mysql
-
-    # Only run if you have composer.json and need dependencies
-    # - name: Install Composer dependencies
-    #   run: composer install --optimize-autoloader --no-dev
-
     - name: Deploy via FTP
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
@@ -29,7 +19,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./
-        server-dir: /public_html/  # Change to your StackCP public directory
+        server-dir: /public_html/
         exclude: |
           **/.git*
           **/.git*/**
@@ -38,6 +28,3 @@ jobs:
           **/.env
           **/.env.example
           **/README.md
-          **/composer.json
-          **/composer.lock
-          **/phpunit.xml
