@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+// post routes
+Route::post('/contact', [ContactController::class , 'sendEmail'])->name('contact.submit');
