@@ -12,19 +12,24 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, mysql
+
     - name: Deploy via FTP
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./
+        local-dir: ./  # or ./public for just public files
         server-dir: /public_html/
         exclude: |
           **/.git*
-          **/.git*/**
           **/node_modules/**
           **/tests/**
           **/.env
-          **/.env.example
           **/README.md
+          **/phpunit.xml
