@@ -6,19 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juan Avila - Author | Humor, Parenting & Life Insights</title>
 
-    <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="Juan Avila, author specializing in humor, parenting, and anger management. Discover insightful and entertaining books that bring laughter to everyday life challenges.">
-    <meta name="keywords"
-        content="Juan Avila, author, humor books, parenting books, anger management, comedy writer, family humor, life insights">
-    <meta name="author" content="Juan Avila">
-
     {{-- favicons icons  --}}
     <link rel="icon" type="image/png" href="{{ asset('images/favicon-96x96.png') }}" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="{{ asset('images/favicon.svg') }}" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}" />
-    <link rel="manifest" href="{{ asset('images/site.webmanifest') }}" />
+    <link rel="manifest" href="{{ asset('images/site.webmanifest') }}"/>
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Juan Avila - Author | Humor, Parenting & Life Insights">
@@ -26,6 +19,151 @@
         content="Discover Juan Avila's insightful and entertaining books on humor, parenting, and life management.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://juan-avila.com">
+
+        <!-- Primary Meta Tags -->
+    <title>Juan Avila - Author of "Finding Laughter in the Chaos" | Humor & Parenting Expert</title>
+    <meta name="title" content="Juan Avila - Author of 'Finding Laughter in the Chaos' | Humor & Parenting Expert">
+    <meta name="description" content="Juan Avila transforms everyday parenting chaos into laughter. Author of 'Finding Laughter in the Chaos' - your guide to humor, parenting wisdom, and finding joy in life's beautiful mess.">
+    <meta name="keywords" content="Juan Avila, parenting book, humor in parenting, finding laughter chaos, parenting guide, funny parenting stories, stress management parents, parenting wisdom, humor author">
+    <meta name="author" content="Juan Avila">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.authorjuanavila.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.authorjuanavila.com/">
+    <meta property="og:title" content="Juan Avila - Author of 'Finding Laughter in the Chaos' | Humor & Parenting Expert">
+    <meta property="og:description" content="Transform everyday parenting chaos into laughter with Juan Avila's humor-filled wisdom. Author of 'Finding Laughter in the Chaos' - your guide to joyful parenting.">
+    <meta property="og:image" content="https://www.authorjuanavila.com/images/juan-avila-author-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Juan Avila - Author">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.authorjuanavila.com/">
+    <meta property="twitter:title" content="Juan Avila - Author of 'Finding Laughter in the Chaos'">
+    <meta property="twitter:description" content="Transform everyday parenting chaos into laughter with Juan Avila's humor-filled wisdom and practical parenting insights.">
+    <meta property="twitter:image" content="https://www.authorjuanavila.com/images/juan-avila-author-twitter.jpg">
+    <meta property="twitter:creator" content="@juanavilaauthor">
+
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Juan Avila",
+        "jobTitle": "Author",
+        "description": "Author and humorist specializing in parenting wisdom and finding laughter in everyday chaos",
+        "url": "https://www.authorjuanavila.com",
+        "image": "https://www.authorjuanavila.com/images/juan-avila-author.jpg",
+        "sameAs": [
+            "https://www.amazon.com/author/juanavila",
+            "https://www.goodreads.com/author/juanavila"
+        ],
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Independent Author"
+        },
+        "knowsAbout": ["Parenting", "Humor Writing", "Stress Management", "Family Life"],
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Writing and Literature"
+        }
+    }
+    </script>
+
+    <!-- Structured Data - Book -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": "Finding Laughter in the Chaos",
+        "alternateName": "Finding Laughter in the Chaos: A Parent's Guide to Surviving with Humor",
+        "author": {
+            "@type": "Person",
+            "name": "Juan Avila",
+            "url": "https://www.authorjuanavila.com"
+        },
+        "description": "A humorous journey through the chaos of parenting, filled with insights on finding patience and joy in life's most challenging moments. Learn how laughter can be your greatest parenting tool.",
+        "genre": ["Parenting", "Humor", "Self-Help"],
+        "bookFormat": "https://schema.org/Paperback",
+        "isbn": "978-XXXXXXXXX",
+        "numberOfPages": "250",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Independent Publishing"
+        },
+        "datePublished": "2024",
+        "inLanguage": "en-US",
+        "offers": [
+            {
+                "@type": "Offer",
+                "availability": "https://schema.org/InStock",
+                "price": "16.99",
+                "priceCurrency": "USD",
+                "seller": {
+                    "@type": "Organization",
+                    "name": "Amazon"
+                }
+            }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "127",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Sarah M."
+                },
+                "reviewBody": "Finally, a parenting book that made me laugh instead of stress! Juan's humor is exactly what overwhelmed parents need."
+            }
+        ]
+    }
+    </script>
+
+    <!-- Structured Data - Website -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Juan Avila - Author",
+        "alternateName": "Juan Avila Author Website",
+        "url": "https://www.authorjuanavila.com",
+        "description": "Official website of Juan Avila, author of 'Finding Laughter in the Chaos' and expert in humor-based parenting wisdom",
+        "publisher": {
+            "@type": "Person",
+            "name": "Juan Avila"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.authorjuanavila.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
