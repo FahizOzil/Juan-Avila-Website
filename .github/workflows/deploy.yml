@@ -1,8 +1,9 @@
-name: Deploy Laravel to StackCP
+name: Deploy Laravel to StackCP via SSH
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   deploy:
@@ -12,24 +13,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
+    - name: Deploy via SSH
+      uses: appleboy/ssh-action@v1.0.0
       with:
-        php-version: '8.1'
-        extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, mysql
-
-    - name: Deploy via FTP
-      uses: SamKirkland/FTP-Deploy-Action@4.3.3
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./  # or ./public for just public files
-        server-dir: /public_html/
-        exclude: |
-          **/.git*
-          **/node_modules/**
-          **/tests/**
-          **/.env
-          **/README.md
-          **/phpunit.xml
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          cd /home/authorjuanavila.com/public_html  # ← adjust path if needed
+          git pull origin main || echo "Using uploaded files"
+          composer install --no-dev --optimize-autoloader
+          php artisan migrate --force
+          php artisan config:cache
+          php artisan route:cache
